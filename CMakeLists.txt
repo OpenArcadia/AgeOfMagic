@@ -33,7 +33,18 @@ add_executable(AgeOfMagic
         scenes/main-menu/MainMenu.h
         utils/config/GameConfig.cpp
         utils/config/GameConfig.h
+        scenes/SceneManager.cpp
+        scenes/SceneManager.hpp
+        utils/config/FontManager.cpp
+        utils/config/FontManager.hpp
+        scenes/ui/MainMenuButton.cpp
+        scenes/ui/MainMenuButton.hpp
 )
 
 # Link raylib and nlohmann_json
 target_link_libraries(AgeOfMagic PRIVATE raylib nlohmann_json::nlohmann_json)
+
+
+add_custom_command(TARGET AgeOfMagic POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/assets $<TARGET_FILE_DIR:AgeOfMagic>/assets)

@@ -9,14 +9,12 @@
 
 class Scene {
     public:
-    virtual ~Scene() = default;
+    virtual ~Scene();
 
-    virtual void create();
-        virtual void render();
-        virtual void update();
-        virtual void destroy();
+    virtual void create() = 0;
+    virtual void render() = 0;
+    virtual void update() = 0;
+    virtual void destroy() = 0;
 };
-
-
 
 #endif //SCENE_H

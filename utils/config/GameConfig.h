@@ -9,12 +9,13 @@ public:
     uint16_t screen_height = 720;
     uint16_t screen_width = 1280;
     bool fullscreen = false;
-    int audio = 75;
+    uint8_t audio = 75;
 
     GameConfig() = default;
 
     void load();
-    void save() const;
+
+    void save();
 };
 
 inline void to_json(nlohmann::json& j, const GameConfig& cfg) {
